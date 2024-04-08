@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import './styles/App.css';
+import GeneralInfo from './components/GeneralInfo';
 
 function App() {
-  return {};
+  return (
+    <>
+      <GeneralInfo />
+    </>
+  );
 }
 
 export default App;
