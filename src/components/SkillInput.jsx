@@ -14,30 +14,41 @@ function SkillInput({
 }) {
     {if (isEditing) {
       return (
-        <ul>
-          {Object.keys(items).map((key) => {
-            return (
-              <li key={key}>
-                <input
-                  type="text"
-                  value={items[key]}
-                  onChange={onChange}
-                  data-key={key}
-                />
-                <DeleteButton
-                  dataKey={key}
-                  onClick={onClickDelete}
-                />
-              </li>
-            );
-          })}
+        <>
+          <ul>
+            {Object.keys(items).map((key) => {
+              return (
+                <li key={key}>
+                  <input
+                    type="text"
+                    value={items[key]}
+                    onChange={onChange}
+                    data-key={key}
+                  />
+                  <DeleteButton
+                    dataKey={key}
+                    onClick={onClickDelete}
+                  />
+                </li>
+              );
+            })}
+          </ul>
           <AddButton onClick={onClickAdd} />
           <SaveButton onClick={onClickSave} />
-        </ul>
+        </>
       );
     } else {
       return (
-        <EditButton onClick={onClickEdit} />
+        <>
+          <ul>
+          {Object.keys(items).map((key) => {
+              return (
+                <li key={key}>{items[key]}</li>
+              );
+            })}
+          </ul>
+          <EditButton onClick={onClickEdit} />
+        </>
       );
     }
   }
