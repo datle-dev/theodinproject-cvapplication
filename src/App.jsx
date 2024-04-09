@@ -75,7 +75,13 @@ function App() {
   }
 
   function handleSkillAdd(e) {
-    setSkillInput({...skillInput, [crypto.randomUUID()]: ''})
+    setSkillInput({...skillInput, [crypto.randomUUID()]: ''});
+  }
+
+  function handleSkillDelete(e) {
+    const keyToExclude = e.target.getAttribute('data-key');
+    let { [keyToExclude]: remove, ...rest } = skillInput;
+    setSkillInput({...rest});
   }
 
   return (
@@ -121,6 +127,7 @@ function App() {
                 items={skillInput}
                 onChange={handleSkillChange}
                 onClickAdd={handleSkillAdd}
+                onClickDelete={handleSkillDelete}
               />
               </>
             )}
