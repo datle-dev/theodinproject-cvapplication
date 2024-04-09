@@ -1,7 +1,6 @@
-function DeleteButton({ key, dataKey, onClick }) {
+function DeleteButton({ dataKey, onClick }) {
   return (
     <button
-      key={key}
       type="button"
       onClick={onClick}
       data-key={dataKey}

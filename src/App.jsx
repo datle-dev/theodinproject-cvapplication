@@ -5,6 +5,7 @@ import InfoPreview from './components/InfoPreview';
 import EducationInput from './components/EducationInput';
 import EducationPreview from './components/EducationPreview';
 import SkillInput from './components/SkillInput';
+import SkillPreview from './components/SkillPreview';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 
@@ -20,15 +21,15 @@ function App() {
     degree: '',
   });
 
-  const [skillInput, setSkillInput] = useState({
-    [crypto.randomUUID()]: '',
-  })
+  const [skillInput, setSkillInput] = useState({})
 
   const [infoPreview, setInfoPreview] = useState(infoInput);
   const [educationPreview, setEducationPreview] = useState(educationInput);
+  const [skillPreview, setSkillPreview] = useState(skillInput);
 
   const [infoStatus, setInfoStatus] = useState('editing');
   const [educationStatus, setEducationStatus] = useState('editing');
+  const [skillStatus, setSkillStatus] = useState('editing');
 
   const [page, setPage] = useState('Info');
 
@@ -52,6 +53,11 @@ function App() {
     setEducationStatus('saved');
   }
 
+  function handleSaveSkill(e) {
+    setSkillPreview({ ...skillInput });
+    setSkillStatus('saved');
+  }
+
   function handleEditInfo(e) {
     setPage('Info');
     setInfoInput({ ...infoPreview });
@@ -62,6 +68,12 @@ function App() {
     setPage('Education');
     setEducationInput({ ...educationPreview });
     setEducationStatus('editing');
+  }
+
+  function handleEditSkill(e) {
+    setPage('Skills');
+    setSkillInput({ ...skillPreview });
+    setSkillStatus('editing');
   }
 
   function handleNavigation(e) {
@@ -128,6 +140,9 @@ function App() {
                 onChange={handleSkillChange}
                 onClickAdd={handleSkillAdd}
                 onClickDelete={handleSkillDelete}
+                onClickSave={handleSaveSkill}
+                onClickEdit={handleEditSkill}
+                isEditing={skillStatus === 'editing'}
               />
               </>
             )}
@@ -152,6 +167,12 @@ function App() {
           {educationStatus === 'saved' && (
             <button type="button" onClick={handleEditEducation}>
               Edit Education
+            </button>
+          )}
+          <SkillPreview items={skillPreview} />
+          {skillStatus === 'saved' && (
+            <button type="button" onClick={handleEditSkill}>
+              Edit Skills
             </button>
           )}
         </section>
