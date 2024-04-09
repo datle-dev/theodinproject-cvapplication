@@ -2,6 +2,7 @@ function Navigation({ onClick }) {
   const pages = [
     'Info',
     'Education',
+    'Skills',
   ];
 
   return (

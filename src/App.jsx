@@ -4,6 +4,7 @@ import InfoInput from './components/InfoInput';
 import InfoPreview from './components/InfoPreview';
 import EducationInput from './components/EducationInput';
 import EducationPreview from './components/EducationPreview';
+import SkillInput from './components/SkillInput';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 
@@ -18,6 +19,10 @@ function App() {
     school: '',
     degree: '',
   });
+
+  const [skillInput, setSkillInput] = useState({
+    [crypto.randomUUID()]: '',
+  })
 
   const [infoPreview, setInfoPreview] = useState(infoInput);
   const [educationPreview, setEducationPreview] = useState(educationInput);
@@ -64,6 +69,15 @@ function App() {
     setPage(key);
   }
 
+  function handleSkillChange(e) {
+    const key = e.target.getAttribute('data-key');
+    setSkillInput({...skillInput, [key]: e.target.value});
+  }
+
+  function handleSkillAdd(e) {
+    setSkillInput({...skillInput, [crypto.randomUUID()]: ''})
+  }
+
   return (
     <>
       <header>
@@ -98,6 +112,16 @@ function App() {
                   onClickEdit={handleEditEducation}
                   isEditing={educationStatus === 'editing'}
                 />
+              </>
+            )}
+            {page === 'Skills' && (
+              <>
+              <h3>Skills</h3>
+              <SkillInput
+                items={skillInput}
+                onChange={handleSkillChange}
+                onClickAdd={handleSkillAdd}
+              />
               </>
             )}
           </form>
