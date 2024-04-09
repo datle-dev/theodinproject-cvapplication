@@ -1,0 +1,15 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.input-panel {
+    grid-row: 1/2;
+    grid-column: 1/2;
+}
+
+.preview-panel {
+    grid-row: 1/2;
+    grid-column: 2/3;
+}

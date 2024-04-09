@@ -66,9 +66,11 @@ function App() {
 
   return (
     <>
-      <main>
+      <header>
         <Navigation onClick={handleNavigation} />
-        <section>
+      </header>
+      <main>
+        <section className='input-panel'>
           <form onSubmit={(e) => e.preventDefault()}>
             <h2>Input</h2>
             {page === 'Info' && (
@@ -100,7 +102,7 @@ function App() {
             )}
           </form>
         </section>
-        <section>
+        <section className='preview-panel'>
           <h2>Preview</h2>
           <InfoPreview
             name={infoPreview.name}
