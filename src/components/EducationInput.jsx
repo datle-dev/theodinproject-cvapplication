@@ -1,6 +1,15 @@
-import MonthYearDropDown from "./MonthYearDropdown";
+import MonthYearDropDown from './MonthYearDropdown';
+import SaveButton from './SaveButton';
+import EditButton from './EditButton';
 
-function EducationInput({ school, degree, onChange, isEditing}) {
+function EducationInput({
+  school,
+  degree,
+  onChange,
+  onClickSave,
+  onClickEdit,
+  isEditing,
+}) {
   if (isEditing) {
     return (
       <>
@@ -13,7 +22,7 @@ function EducationInput({ school, degree, onChange, isEditing}) {
             placeholder="Cheesington Cheesiversity"
             onChange={onChange}
             value={school}
-            data-key='school'
+            data-key="school"
             required
           />
         </div>
@@ -26,11 +35,12 @@ function EducationInput({ school, degree, onChange, isEditing}) {
             placeholder="Cheeser's of Cheese Arts"
             onChange={onChange}
             value={degree}
-            data-key='degree'
+            data-key="degree"
             required
           />
         </div>
         <MonthYearDropDown />
+        <SaveButton onClick={onClickSave} />
       </>
     );
   } else {
@@ -38,10 +48,10 @@ function EducationInput({ school, degree, onChange, isEditing}) {
       <>
         <p>{school}</p>
         <p>{degree}</p>
+        <EditButton onClick={onClickEdit} />
       </>
     );
   }
 }
-  
+
 export default EducationInput;
-  

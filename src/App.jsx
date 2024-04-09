@@ -5,7 +5,6 @@ import InfoPreview from './components/InfoPreview';
 import EducationInput from './components/EducationInput';
 import EducationPreview from './components/EducationPreview';
 import Footer from './components/Footer';
-import SaveButton from './components/SaveButton';
 import Navigation from './components/Navigation';
 
 function App() {
@@ -23,8 +22,8 @@ function App() {
   const [infoPreview, setInfoPreview] = useState(infoInput);
   const [educationPreview, setEducationPreview] = useState(educationInput);
 
-  const [infoStatus, setInfoStatus] = useState('editing')
-  const [educationStatus, setEducationStatus] = useState('editing')
+  const [infoStatus, setInfoStatus] = useState('editing');
+  const [educationStatus, setEducationStatus] = useState('editing');
 
   const [page, setPage] = useState('Info');
 
@@ -39,24 +38,24 @@ function App() {
   }
 
   function handleSaveInfo(e) {
-    setInfoPreview({...infoInput});
+    setInfoPreview({ ...infoInput });
     setInfoStatus('saved');
   }
 
   function handleSaveEducation(e) {
-    setEducationPreview({...educationInput});
+    setEducationPreview({ ...educationInput });
     setEducationStatus('saved');
   }
 
   function handleEditInfo(e) {
     setPage('Info');
-    setInfoInput({...infoPreview});
+    setInfoInput({ ...infoPreview });
     setInfoStatus('editing');
   }
-  
+
   function handleEditEducation(e) {
     setPage('Education');
-    setEducationInput({...educationPreview});
+    setEducationInput({ ...educationPreview });
     setEducationStatus('editing');
   }
 
@@ -68,7 +67,7 @@ function App() {
   return (
     <>
       <main>
-        <Navigation onClick={handleNavigation}/>
+        <Navigation onClick={handleNavigation} />
         <section>
           <form onSubmit={(e) => e.preventDefault()}>
             <h2>Input</h2>
@@ -80,9 +79,10 @@ function App() {
                   email={infoInput.email}
                   phone={infoInput.phone}
                   onChange={handleInfoChange}
+                  onClickSave={handleSaveInfo}
+                  onClickEdit={handleEditInfo}
                   isEditing={infoStatus === 'editing'}
-                  />
-                <SaveButton status={infoStatus} onClick={handleSaveInfo} />
+                />
               </>
             )}
             {page === 'Education' && (
@@ -92,9 +92,10 @@ function App() {
                   school={educationInput.school}
                   degree={educationInput.degree}
                   onChange={handleEducationChange}
+                  onClickSave={handleSaveEducation}
+                  onClickEdit={handleEditEducation}
                   isEditing={educationStatus === 'editing'}
                 />
-                <SaveButton status={educationStatus} onClick={handleSaveEducation} />
               </>
             )}
           </form>
@@ -107,14 +108,18 @@ function App() {
             phone={infoPreview.phone}
           />
           {infoStatus === 'saved' && (
-            <button type="button" onClick={handleEditInfo}>Edit Info</button>
+            <button type="button" onClick={handleEditInfo}>
+              Edit Info
+            </button>
           )}
           <EducationPreview
             school={educationPreview.school}
             degree={educationPreview.degree}
           />
           {educationStatus === 'saved' && (
-            <button type="button" onClick={handleEditEducation}>Edit Education</button>
+            <button type="button" onClick={handleEditEducation}>
+              Edit Education
+            </button>
           )}
         </section>
       </main>

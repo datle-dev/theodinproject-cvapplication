@@ -1,9 +1,9 @@
-function SaveButton({ onClick }) {
+function EditButton({ onClick }) {
   return (
     <button type="button" onClick={onClick}>
-      Save
+      Edit
     </button>
   );
 }
 
-export default SaveButton;
+export default EditButton;
