@@ -58,18 +58,32 @@ function App() {
   const [page, setPage] = useState('Info');
 
   function handleInfoChange(e) {
-    const key = e.target.getAttribute('data-key');
-    setInfoInput({ ...infoInput, [key]: e.target.value });
+    const field = e.target.getAttribute('data-field');
+    setInfoInput({ ...infoInput, [field]: e.target.value });
   }
 
   function handleEducationChange(e) {
-    const key = e.target.getAttribute('data-key');
-    setEducationInput({ ...educationInput, [key]: e.target.value });
+    const field = e.target.getAttribute('data-field');
+    setEducationInput({ ...educationInput, [field]: e.target.value });
   }
   
   function handleExperienceChange(e) {
     const key = e.target.getAttribute('data-key');
     const field = e.target.getAttribute('data-field');
+    setExperienceInput({
+      ...experienceInput,
+      [key]: {
+        ...experienceInput[key],
+        [field]: e.target.value
+      }
+    });
+  }
+
+  function handleExperienceChangeMonthYear(e) {
+    const key = e.target.getAttribute('data-key');
+    const tempType = e.target.getAttribute('data-type');
+    const tempField = e.target.getAttribute('data-field');
+    const field = tempType + tempField.charAt(0).toUpperCase() + tempField.slice(1);
     setExperienceInput({
       ...experienceInput,
       [key]: {
@@ -221,6 +235,7 @@ function App() {
               <ExperienceInput
                 items={experienceInput}
                 onChange={handleExperienceChange}
+                onChangeMonthYear={handleExperienceChangeMonthYear}
                 onClickSave={handleSaveExperience}
                 onClickEdit={handleEditExperience}
                 onClickAdd={handleAddExperience}

@@ -24,7 +24,7 @@ function EducationInput({
             placeholder="Cheesington Cheesiversity"
             onChange={onChange}
             value={school}
-            data-key="school"
+            data-field="school"
             required
           />
         </div>
@@ -37,7 +37,7 @@ function EducationInput({
             placeholder="Cheeser's of Cheese Arts"
             onChange={onChange}
             value={degree}
-            data-key="degree"
+            data-field="degree"
             required
           />
         </div>

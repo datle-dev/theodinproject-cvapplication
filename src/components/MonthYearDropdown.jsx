@@ -1,4 +1,4 @@
-function MonthYearDropDown({ selectedMonth, selectedYear, onChange }) {
+function MonthYearDropDown({ selectedMonth, selectedYear, dataKey, dataType, onChange }) {
   const months = [
     'January',
     'February',
@@ -28,7 +28,9 @@ function MonthYearDropDown({ selectedMonth, selectedYear, onChange }) {
         <select
           name="month"
           id="month"
-          data-key="month"
+          data-key={dataKey}
+          data-field="month"
+          data-type={dataType}
           onChange={onChange}
           defaultValue={selectedMonth}
         >
@@ -46,7 +48,9 @@ function MonthYearDropDown({ selectedMonth, selectedYear, onChange }) {
         <select
           name="year"
           id="year"
-          data-key="year"
+          data-key={dataKey}
+          data-field="year"
+          data-type={dataType}
           onChange={onChange}
           defaultValue={selectedYear}
         >

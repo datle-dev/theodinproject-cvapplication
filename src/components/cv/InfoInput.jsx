@@ -22,7 +22,7 @@ function InfoInput({
             placeholder="Cheese McCheese"
             onChange={onChange}
             value={name}
-            data-key="name"
+            data-field="name"
             required
           />
         </div>
@@ -35,7 +35,7 @@ function InfoInput({
             placeholder="cheese@cheese.com"
             onChange={onChange}
             value={email}
-            data-key="email"
+            data-field="email"
             required
           />
         </div>
@@ -49,7 +49,7 @@ function InfoInput({
             pattern="[0-9]{10}"
             onChange={onChange}
             value={phone}
-            data-key="phone"
+            data-field="phone"
             required
           />
         </div>
