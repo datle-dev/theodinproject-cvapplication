@@ -6,6 +6,7 @@ import EducationInput from './components/cv/EducationInput';
 import EducationPreview from './components/cv/EducationPreview';
 import SkillInput from './components/cv/SkillInput';
 import SkillPreview from './components/cv/SkillPreview';
+import ExperienceInput from './components/cv/ExperienceInput';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 
@@ -23,15 +24,28 @@ function App() {
     year: '2024',
   });
 
-  const [skillInput, setSkillInput] = useState({})
+  const [skillInput, setSkillInput] = useState({});
+
+  const [experienceInput, setExperienceInput] = useState({
+    ['test']: {
+      title: 'my title',
+      company: 'my company',
+    },
+    ['test2']: {
+      title: 'my title 2',
+      company: 'my company 2',
+    }
+  });
 
   const [infoPreview, setInfoPreview] = useState(infoInput);
   const [educationPreview, setEducationPreview] = useState(educationInput);
   const [skillPreview, setSkillPreview] = useState(skillInput);
+  const [experiencePreview, setExperiencePreview] = useState(experienceInput);
 
   const [infoStatus, setInfoStatus] = useState('editing');
   const [educationStatus, setEducationStatus] = useState('editing');
   const [skillStatus, setSkillStatus] = useState('editing');
+  const [experienceStatus, setExperienceStatus] = useState('editing');
 
   const [page, setPage] = useState('Info');
 
@@ -43,6 +57,10 @@ function App() {
   function handleEducationChange(e) {
     const key = e.target.getAttribute('data-key');
     setEducationInput({ ...educationInput, [key]: e.target.value });
+  }
+
+  function handleExperienceChange(e) {
+    console.log('experience change');
   }
 
   function handleSaveInfo(e) {
@@ -58,6 +76,11 @@ function App() {
   function handleSaveSkill(e) {
     setSkillPreview({ ...skillInput });
     setSkillStatus('saved');
+  }
+
+  function handleSaveExperience(e) {
+    setExperiencePreview({ ...experienceInput });
+    setExperienceStatus('saved');
   }
 
   function handleEditInfo(e) {
@@ -76,6 +99,12 @@ function App() {
     setPage('Skills');
     setSkillInput({ ...skillPreview });
     setSkillStatus('editing');
+  }
+
+  function handleEditExperience(e) {
+    setPage('Experience');
+    setExperienceInput({ ...experiencePreview });
+    setExperienceStatus('editing');
   }
 
   function handleNavigation(e) {
@@ -147,6 +176,18 @@ function App() {
                 onClickSave={handleSaveSkill}
                 onClickEdit={handleEditSkill}
                 isEditing={skillStatus === 'editing'}
+              />
+              </>
+            )}
+            {page === 'Experience' && (
+              <>
+              <h3>Experience</h3>
+              <ExperienceInput
+                items={experienceInput}
+                onChange={handleExperienceChange}
+                onClickSave={handleSaveExperience}
+                onClickEdit={handleEditExperience}
+                isEditing={experienceStatus === 'editing'}
               />
               </>
             )}
