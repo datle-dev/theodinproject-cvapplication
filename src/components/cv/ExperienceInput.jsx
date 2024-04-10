@@ -4,7 +4,7 @@ import DeleteButton from '../buttons/DeleteButton';
 import SaveButton from '../buttons/SaveButton';
 import EditButton from '../buttons/EditButton';
 
-function ExperienceInput({ items, onChange, onClickSave, onClickEdit, isEditing }) {
+function ExperienceInput({ items, onChange, onClickSave, onClickEdit, onClickAdd, onClickDelete, isEditing }) {
   if (isEditing) {
     return (
       <>
@@ -20,7 +20,8 @@ function ExperienceInput({ items, onChange, onClickSave, onClickEdit, isEditing 
                 placeholder="Cheese Master"
                 onChange={onChange}
                 value={items[key].title}
-                data-key="title"
+                data-key={key}
+                data-field="title"
                 required
               />
             </div>
@@ -33,21 +34,30 @@ function ExperienceInput({ items, onChange, onClickSave, onClickEdit, isEditing 
                 placeholder="Cheese Master"
                 onChange={onChange}
                 value={items[key].company}
-                data-key="company"
+                data-key={key}
+                data-field="company"
                 required
               />
             </div>
             <div>
               <p>From</p>
-              <MonthYearDropDown />
+              <MonthYearDropDown
+                selectedMonth={items[key].fromMonth}
+                selectedYear={items[key].fromYear}
+              />
             </div>
             <div>
               <p>To</p>
-              <MonthYearDropDown />
+              <MonthYearDropDown
+                selectedMonth={items[key].toMonth}
+                selectedYear={items[key].toYear}
+              />
             </div>
+            <DeleteButton dataKey={key} onClick={onClickDelete} />
           </div>
         )
       })}
+      <AddButton onClick={onClickAdd} />
       <SaveButton onClick={onClickSave} />
       </>
     )

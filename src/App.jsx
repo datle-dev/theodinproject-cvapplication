@@ -30,10 +30,18 @@ function App() {
     ['test']: {
       title: 'my title',
       company: 'my company',
+      fromMonth: 'January',
+      fromYear: '2023',
+      toMonth: 'December',
+      toYear: '2024',
     },
     ['test2']: {
       title: 'my title 2',
       company: 'my company 2',
+      fromMonth: 'January',
+      fromYear: '2023',
+      toMonth: 'December',
+      toYear: '2024',
     }
   });
 
@@ -58,9 +66,17 @@ function App() {
     const key = e.target.getAttribute('data-key');
     setEducationInput({ ...educationInput, [key]: e.target.value });
   }
-
+  
   function handleExperienceChange(e) {
-    console.log('experience change');
+    const key = e.target.getAttribute('data-key');
+    const field = e.target.getAttribute('data-field');
+    setExperienceInput({
+      ...experienceInput,
+      [key]: {
+        ...experienceInput[key],
+        [field]: e.target.value
+      }
+    });
   }
 
   function handleSaveInfo(e) {
@@ -127,6 +143,26 @@ function App() {
     setSkillInput({...rest});
   }
 
+  function handleAddExperience(e) {
+    setExperienceInput({
+      ...experienceInput,
+      [crypto.randomUUID()]: {
+        title: '',
+        company: '',
+        fromMonth: 'January',
+        fromYear: '2024',
+        toMonth: 'January',
+        toYear: '2024',
+      }
+    })
+  }
+
+  function handleDeleteExperience(e) {
+    const keyToExclude = e.target.getAttribute('data-key');
+    let { [keyToExclude]: remove, ...rest } = experienceInput;
+    setExperienceInput({...rest});
+  }
+
   return (
     <>
       <header>
@@ -187,6 +223,8 @@ function App() {
                 onChange={handleExperienceChange}
                 onClickSave={handleSaveExperience}
                 onClickEdit={handleEditExperience}
+                onClickAdd={handleAddExperience}
+                onClickDelete={handleDeleteExperience}
                 isEditing={experienceStatus === 'editing'}
               />
               </>
