@@ -19,6 +19,8 @@ function App() {
   const [educationInput, setEducationInput] = useState({
     school: '',
     degree: '',
+    month: 'January',
+    year: '2024',
   });
 
   const [skillInput, setSkillInput] = useState({})
@@ -125,6 +127,8 @@ function App() {
                 <EducationInput
                   school={educationInput.school}
                   degree={educationInput.degree}
+                  month={educationInput.month}
+                  year={educationInput.year}
                   onChange={handleEducationChange}
                   onClickSave={handleSaveEducation}
                   onClickEdit={handleEditEducation}
@@ -163,6 +167,8 @@ function App() {
           <EducationPreview
             school={educationPreview.school}
             degree={educationPreview.degree}
+            month={educationPreview.month}
+            year={educationPreview.year}
           />
           {educationStatus === 'saved' && (
             <button type="button" onClick={handleEditEducation}>

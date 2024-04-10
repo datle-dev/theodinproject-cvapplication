@@ -5,6 +5,8 @@ import EditButton from './EditButton';
 function EducationInput({
   school,
   degree,
+  month,
+  year,
   onChange,
   onClickSave,
   onClickEdit,
@@ -39,7 +41,7 @@ function EducationInput({
             required
           />
         </div>
-        <MonthYearDropDown />
+        <MonthYearDropDown selectedMonth={month} selectedYear={year} onChange={onChange}/>
         <SaveButton onClick={onClickSave} />
       </>
     );
@@ -48,6 +50,8 @@ function EducationInput({
       <>
         <p>{school}</p>
         <p>{degree}</p>
+        <p>{month}</p>
+        <p>{year}</p>
         <EditButton onClick={onClickEdit} />
       </>
     );
