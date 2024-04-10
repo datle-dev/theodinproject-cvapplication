@@ -10,6 +10,7 @@ function ExperiencePreview({ items }) {
             <p>{items[key].fromYear}</p>
             <p>{items[key].toMonth}</p>
             <p>{items[key].toYear}</p>
+            <p>{items[key].description}</p>
           </div>
         );
       })}

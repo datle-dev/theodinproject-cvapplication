@@ -59,6 +59,20 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
                 onChange={onChangeMonthYear}
               />
             </div>
+            <div>
+              <label htmlFor="description">Description</label>
+              <textarea
+                name="description"
+                id="description"
+                placeholder="A description of cheese"
+                onChange={onChange}
+                value={items[key].description}
+                data-key={key}
+                data-field="description"
+                required
+              >
+              </textarea>
+            </div>
             <DeleteButton dataKey={key} onClick={onClickDelete} />
           </div>
         )
@@ -79,6 +93,7 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
             <p>{items[key].fromYear}</p>
             <p>{items[key].toMonth}</p>
             <p>{items[key].toYear}</p>
+            <p>{items[key].description}</p>
           </div>
         )
       })}
