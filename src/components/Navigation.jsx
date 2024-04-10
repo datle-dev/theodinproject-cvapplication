@@ -4,6 +4,7 @@ function Navigation({ onClick }) {
     'Education',
     'Skills',
     'Experience',
+    'Socials',
   ];
 
   return (

@@ -8,6 +8,8 @@ import SkillInput from './components/cv/SkillInput';
 import SkillPreview from './components/cv/SkillPreview';
 import ExperienceInput from './components/cv/ExperienceInput';
 import ExperiencePreview from './components/cv/ExperiencePreview';
+import SocialInput from './components/cv/SocialInput';
+import SocialPreview from './components/cv/SocialPreview';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 
@@ -29,15 +31,22 @@ function App() {
 
   const [experienceInput, setExperienceInput] = useState({});
 
+  const [socialInput, setSocialInput] = useState({
+    linkedin: '',
+    github: '',
+  });
+
   const [infoPreview, setInfoPreview] = useState(infoInput);
   const [educationPreview, setEducationPreview] = useState(educationInput);
   const [skillPreview, setSkillPreview] = useState(skillInput);
   const [experiencePreview, setExperiencePreview] = useState(experienceInput);
+  const [socialPreview, setSocialPreview] = useState(socialInput);
 
   const [infoStatus, setInfoStatus] = useState('editing');
   const [educationStatus, setEducationStatus] = useState('editing');
   const [skillStatus, setSkillStatus] = useState('editing');
   const [experienceStatus, setExperienceStatus] = useState('editing');
+  const [socialStatus, setSocialStatus] = useState('editing');
 
   const [page, setPage] = useState('Info');
 
@@ -77,6 +86,11 @@ function App() {
     });
   }
 
+  function handleSocialChange(e) {
+    const field = e.target.getAttribute('data-field');
+    setSocialInput({ ...socialInput, [field]: e.target.value })
+  }
+
   function handleSaveInfo(e) {
     setInfoPreview({ ...infoInput });
     setInfoStatus('saved');
@@ -95,6 +109,11 @@ function App() {
   function handleSaveExperience(e) {
     setExperiencePreview({ ...experienceInput });
     setExperienceStatus('saved');
+  }
+
+  function handleSaveSocial(e) {
+    setSocialPreview({ ...socialInput });
+    setSocialStatus('saved');
   }
 
   function handleEditInfo(e) {
@@ -119,6 +138,12 @@ function App() {
     setPage('Experience');
     setExperienceInput({ ...experiencePreview });
     setExperienceStatus('editing');
+  }
+
+  function handleEditSocial(e) {
+    setPage('Socials');
+    setSocialInput({ ...socialPreview });
+    setSocialStatus('editing');
   }
 
   function handleNavigation(e) {
@@ -228,6 +253,19 @@ function App() {
               />
               </>
             )}
+            {page === 'Socials' && (
+              <>
+              <h3>Socials</h3>
+              <SocialInput
+                linkedin={socialInput.linkedin}
+                github={socialInput.github}
+                onChange={handleSocialChange}
+                onClickSave={handleSaveSocial}
+                onClickEdit={handleEditSocial}
+                isEditing={socialStatus === 'editing'}
+              />
+              </>
+            )}
           </form>
         </section>
         <section className='preview-panel'>
@@ -241,6 +279,15 @@ function App() {
             <button type="button" onClick={handleEditInfo}>
               Edit Info
             </button>
+          )}
+          <SocialPreview
+            linkedin={socialPreview.linkedin}
+            github={socialPreview.github}
+          />
+          {socialStatus === 'saved' && (
+            <button type="button" onClick={handleEditSocial}>
+            Edit Socials
+          </button>
           )}
           <EducationPreview
             school={educationPreview.school}
