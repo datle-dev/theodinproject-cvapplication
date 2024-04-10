@@ -1,7 +1,7 @@
-import AddButton from './AddButton';
-import DeleteButton from './DeleteButton';
-import SaveButton from './SaveButton';
-import EditButton from './EditButton';
+import AddButton from '../buttons/AddButton';
+import DeleteButton from '../buttons/DeleteButton';
+import SaveButton from '../buttons/SaveButton';
+import EditButton from '../buttons/EditButton';
 
 function SkillInput({
   items,

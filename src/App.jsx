@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import './styles/App.css';
-import InfoInput from './components/InfoInput';
-import InfoPreview from './components/InfoPreview';
-import EducationInput from './components/EducationInput';
-import EducationPreview from './components/EducationPreview';
-import SkillInput from './components/SkillInput';
-import SkillPreview from './components/SkillPreview';
+import InfoInput from './components/cv/InfoInput';
+import InfoPreview from './components/cv/InfoPreview';
+import EducationInput from './components/cv/EducationInput';
+import EducationPreview from './components/cv/EducationPreview';
+import SkillInput from './components/cv/SkillInput';
+import SkillPreview from './components/cv/SkillPreview';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 

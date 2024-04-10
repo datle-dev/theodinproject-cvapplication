@@ -1,5 +1,5 @@
-import SaveButton from './SaveButton';
-import EditButton from './EditButton';
+import SaveButton from '../buttons/SaveButton';
+import EditButton from '../buttons/EditButton';
 
 function InfoInput({
   name,

@@ -1,6 +1,6 @@
-import MonthYearDropDown from './MonthYearDropdown';
-import SaveButton from './SaveButton';
-import EditButton from './EditButton';
+import MonthYearDropDown from '../MonthYearDropdown';
+import SaveButton from '../buttons/SaveButton';
+import EditButton from '../buttons/EditButton';
 
 function EducationInput({
   school,
