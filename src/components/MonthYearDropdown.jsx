@@ -24,47 +24,38 @@ function MonthYearDropDown({ selectedMonth, selectedYear, onChange }) {
   return (
     <>
       <div>
-        <label htmlFor='month'>Month</label>
+        <label htmlFor="month">Month</label>
         <select
-          name='month'
-          id='month'
-          data-key='month'
+          name="month"
+          id="month"
+          data-key="month"
           onChange={onChange}
+          defaultValue={selectedMonth}
         >
           {months.map((month) => {
-            if (month === selectedMonth) {
-              return (
-                <option key={month} value={month} selected>
-                  {month}
-                </option>
-              );
-            } else {
-              return (
-                <option key={month} value={month}>
-                  {month}
-                </option>
-              );
-            }
+            return (
+              <option key={month} value={month}>
+                {month}
+              </option>
+            );
           })}
         </select>
       </div>
       <div>
-        <label htmlFor='year'>Year</label>
-        <select name='year' id='year' data-key='year' onChange={onChange}>
+        <label htmlFor="year">Year</label>
+        <select
+          name="year"
+          id="year"
+          data-key="year"
+          onChange={onChange}
+          defaultValue={selectedYear}
+        >
           {years.map((year) => {
-            if (year === selectedYear) {
-              return (
-                <option key={year} value={year} selected>
-                  {year}
-                </option>
-              );
-            } else {
-              return (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              );
-            }
+            return (
+              <option key={year} value={year}>
+                {year}
+              </option>
+            );
           })}
         </select>
       </div>
