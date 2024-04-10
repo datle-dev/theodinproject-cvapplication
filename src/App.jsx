@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './styles/reset.css';
 import './styles/App.css';
 import InfoInput from './components/cv/InfoInput';
 import InfoPreview from './components/cv/InfoPreview';
