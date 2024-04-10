@@ -7,6 +7,7 @@ import EducationPreview from './components/cv/EducationPreview';
 import SkillInput from './components/cv/SkillInput';
 import SkillPreview from './components/cv/SkillPreview';
 import ExperienceInput from './components/cv/ExperienceInput';
+import ExperiencePreview from './components/cv/ExperiencePreview';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
 
@@ -26,24 +27,7 @@ function App() {
 
   const [skillInput, setSkillInput] = useState({});
 
-  const [experienceInput, setExperienceInput] = useState({
-    ['test']: {
-      title: 'my title',
-      company: 'my company',
-      fromMonth: 'January',
-      fromYear: '2023',
-      toMonth: 'December',
-      toYear: '2024',
-    },
-    ['test2']: {
-      title: 'my title 2',
-      company: 'my company 2',
-      fromMonth: 'January',
-      fromYear: '2023',
-      toMonth: 'December',
-      toYear: '2024',
-    }
-  });
+  const [experienceInput, setExperienceInput] = useState({});
 
   const [infoPreview, setInfoPreview] = useState(infoInput);
   const [educationPreview, setEducationPreview] = useState(educationInput);
@@ -273,6 +257,12 @@ function App() {
           {skillStatus === 'saved' && (
             <button type="button" onClick={handleEditSkill}>
               Edit Skills
+            </button>
+          )}
+          <ExperiencePreview items={experiencePreview} />
+          {experienceStatus === 'saved' && (
+            <button type="button" onClick={handleEditExperience}>
+              Edit Experience
             </button>
           )}
         </section>
