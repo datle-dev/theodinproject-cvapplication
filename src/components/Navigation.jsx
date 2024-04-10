@@ -3,6 +3,7 @@ function Navigation({ onClick }) {
     'Info',
     'Education',
     'Skills',
+    'Experience',
   ];
 
   return (
