@@ -41,7 +41,12 @@ function EducationInput({
             required
           />
         </div>
-        <MonthYearDropDown selectedMonth={month} selectedYear={year} onChange={onChange}/>
+        <MonthYearDropDown
+          legend="Graduation Date"
+          selectedMonth={month}
+          selectedYear={year}
+          onChange={onChange}
+        />
         <SaveButton onClick={onClickSave} />
       </>
     );
