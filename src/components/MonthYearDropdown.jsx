@@ -1,3 +1,5 @@
+import '../styles/MonthYearDropdown.css';
+
 function MonthYearDropDown({ legend, selectedMonth, selectedYear, dataKey, dataType, onChange }) {
   const months = [
     'January',
@@ -24,7 +26,7 @@ function MonthYearDropDown({ legend, selectedMonth, selectedYear, dataKey, dataT
   return (
     <>
       <div>
-        <fieldset>
+        <fieldset className="month-year-fieldset">
           <legend>{legend}</legend>
           <label htmlFor="month">Month</label>
           <select
