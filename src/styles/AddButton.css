@@ -1,0 +1,27 @@
+:root {
+    --color-add-button-bg: rgb(26, 86, 219);
+    --color-add-button-bg-hover: rgb(13, 62, 168);
+    --color-add-button-fill: white;
+}
+
+.add-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-add-button-bg);
+    border: none;
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.add-button svg {
+    height: 100%;
+    width: 100%;
+    fill: var(--color-add-button-fill);
+}
+
+.add-button:hover {
+    background: var(--color-add-button-bg-hover);
+}

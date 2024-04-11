@@ -1,6 +1,11 @@
+import '../../styles/AddButton.css';
+import AddIcon from '../icons/AddIcon';
+
 function AddButton({ onClick }) {
   return (
-    <button type="button" onClick={onClick}>Add</button>
+    <button className="add-button" type="button" onClick={onClick}>
+      <AddIcon />
+    </button>
   );
 }
 
