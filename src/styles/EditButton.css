@@ -1,0 +1,18 @@
+:root {
+    --color-edit-button-bg: rgb(26, 86, 219);
+    --color-edit-button-bg-hover: rgb(13, 62, 168);
+    --color-edit-button-text: white;
+}
+
+.edit-button {
+    background: var(--color-edit-button-bg);
+    color: var(--color-edit-button-text);
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.edit-button:hover {
+    background: var(--color-edit-button-bg-hover);
+}

@@ -46,7 +46,7 @@ function SkillInput({
               );
             })}
           </ul>
-          <EditButton onClick={onClickEdit} />
+          <EditButton buttonText="Edit" onClick={onClickEdit} />
         </>
       );
     }

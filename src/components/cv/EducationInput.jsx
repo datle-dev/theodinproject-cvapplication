@@ -57,7 +57,7 @@ function EducationInput({
         <p>{degree}</p>
         <p>{month}</p>
         <p>{year}</p>
-        <EditButton onClick={onClickEdit} />
+        <EditButton buttonText="Edit" onClick={onClickEdit} />
       </>
     );
   }

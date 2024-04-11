@@ -40,7 +40,7 @@ function SocialInput({ linkedin, github, onChange, onClickSave, onClickEdit, isE
           <a href={'https://www.github.com/' + github}>{github}</a>
         </div>
         <div>
-          <EditButton onClick={onClickEdit} />
+          <EditButton buttonText="Edit" onClick={onClickEdit} />
         </div>
       </>
     );

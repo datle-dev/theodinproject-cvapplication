@@ -1,7 +1,9 @@
-function EditButton({ onClick }) {
+import '../../styles/EditButton.css';
+
+function EditButton({ buttonText, onClick }) {
   return (
-    <button type="button" onClick={onClick}>
-      Edit
+    <button className="edit-button" type="button" onClick={onClick}>
+      {buttonText}
     </button>
   );
 }

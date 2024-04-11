@@ -62,7 +62,7 @@ function InfoInput({
         <p>{name}</p>
         <p>{email}</p>
         <p>{phone}</p>
-        <EditButton onClick={onClickEdit} />
+        <EditButton buttonText="Edit" onClick={onClickEdit} />
       </>
     );
   }

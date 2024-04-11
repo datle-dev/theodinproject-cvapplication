@@ -97,7 +97,7 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
           </div>
         )
       })}
-      <EditButton onClick={onClickEdit}/>
+      <EditButton buttonText="Edit" onClick={onClickEdit}/>
       </>
     )
   }
