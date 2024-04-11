@@ -1,0 +1,27 @@
+:root {
+    --color-delete-button-fill: rgb(107, 114, 128);
+    --color-delete-button-fill-hover: rgb(32, 32, 32);
+}
+
+
+
+.delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.delete-button svg {
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    fill: var(--color-delete-button-fill);
+}
+
+.delete-button:hover svg {
+    fill: var(--color-delete-button-fill-hover);
+}
