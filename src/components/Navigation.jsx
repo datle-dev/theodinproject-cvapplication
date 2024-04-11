@@ -1,4 +1,12 @@
-function Navigation({ onClick }) {
+import '../styles/Navigation.css';
+// import infoIcon from '../assets/ph--user.svg';
+import InfoIcon from './icons/InfoIcon';
+import EducationIcon from './icons/EducationIcon';
+import SkillsIcon from './icons/SkillsIcon';
+import ExperienceIcon from './icons/ExperienceIcon';
+import SocialsIcon from './icons/SocialsIcon';
+
+function Navigation({ currentPage, onClick }) {
   const pages = [
     'Info',
     'Education',
@@ -7,19 +15,46 @@ function Navigation({ onClick }) {
     'Socials',
   ];
 
+  const icons = {
+    'Info': <InfoIcon />,
+    'Education': <EducationIcon />,
+    'Skills': <SkillsIcon />,
+    'Experience': <ExperienceIcon />,
+    'Socials': <SocialsIcon />,
+  }
+
+
   return (
-    pages.map((page) => {
-      return (
-        <button
-          key={page}
-          type="button"
-          onClick={onClick}
-          data-key={page}
-        >
-          {page}
-        </button>
-      );
-    })
+    <nav>
+      {pages.map((page) => {
+        if (page === currentPage) {
+          return (
+            <button
+              key={page}
+              type="button"
+              onClick={onClick}
+              data-key={page}
+              className='active-page'
+            >
+              {icons[page]}
+              {page}
+            </button>
+          );
+        } else {
+          return (
+            <button
+              key={page}
+              type="button"
+              onClick={onClick}
+              data-key={page}
+            >
+              {icons[page]}
+              {page}
+            </button>
+          );
+        }
+      })}
+    </nav>
   );
 }
 

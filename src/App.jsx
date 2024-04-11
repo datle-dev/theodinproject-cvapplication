@@ -190,7 +190,7 @@ function App() {
   return (
     <>
       <header>
-        <Navigation onClick={handleNavigation} />
+        <Navigation currentPage={page} onClick={handleNavigation} />
       </header>
       <main>
         <section className='input-panel'>

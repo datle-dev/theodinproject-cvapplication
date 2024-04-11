@@ -1,0 +1,35 @@
+:root {
+    --color-button-nav-inactive: rgb(107, 114, 128);
+    --color-button-nav-active: rgb(26, 86, 219);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+nav button {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 0.25rem;
+    border: 2px solid transparent;
+    background: none;
+    margin-bottom: 1rem;
+    color: var(--color-button-nav-inactive);
+    fill: var(--color-button-nav-inactive);
+}
+
+nav button:hover {
+    border-bottom: 2px solid black;
+    color: black;
+    fill: black;
+}
+
+.active-page {
+    color: var(--color-button-nav-active);
+    border-bottom: 2px solid var(--color-button-nav-active);
+    fill: var(--color-button-nav-active);
+}
