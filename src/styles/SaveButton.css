@@ -1,0 +1,18 @@
+:root {
+    --color-save-button-bg: rgb(26, 86, 219);
+    --color-save-button-bg-hover: rgb(13, 62, 168);
+    --color-save-button-text: white;
+}
+
+.save-button {
+    background: var(--color-add-button-bg);
+    color: var(--color-save-button-text);
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.save-button:hover {
+    background: var(--color-add-button-bg-hover);
+}

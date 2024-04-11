@@ -1,6 +1,8 @@
+import '../../styles/SaveButton.css';
+
 function SaveButton({ onClick }) {
   return (
-    <button type="button" onClick={onClick}>
+    <button className="save-button" type="button" onClick={onClick}>
       Save
     </button>
   );
