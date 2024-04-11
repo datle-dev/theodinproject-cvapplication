@@ -40,8 +40,8 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
               />
             </div>
             <div>
-              <p>From</p>
               <MonthYearDropDown
+                legend='From'
                 selectedMonth={items[key].fromMonth}
                 selectedYear={items[key].fromYear}
                 dataKey={key}
@@ -50,8 +50,8 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
               />
             </div>
             <div>
-              <p>To</p>
               <MonthYearDropDown
+                legend='To'
                 selectedMonth={items[key].toMonth}
                 selectedYear={items[key].toYear}
                 dataKey={key}
