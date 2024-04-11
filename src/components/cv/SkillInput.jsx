@@ -1,3 +1,4 @@
+import '../../styles/SkillInput.css';
 import AddButton from '../buttons/AddButton';
 import DeleteButton from '../buttons/DeleteButton';
 import SaveButton from '../buttons/SaveButton';
@@ -17,7 +18,7 @@ function SkillInput({
         <>
           {Object.keys(items).map((key) => {
             return (
-              <div key={key}>
+              <div className="skill-entry" key={key}>
                 <input
                   type="text"
                   value={items[key]}
