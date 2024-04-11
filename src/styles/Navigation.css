@@ -1,6 +1,7 @@
 :root {
     --color-button-nav-inactive: rgb(107, 114, 128);
     --color-button-nav-active: rgb(26, 86, 219);
+    --color-button-nav-hover: rgb(32, 32, 32);
 }
 
 nav {
@@ -23,9 +24,9 @@ nav button {
 }
 
 nav button:hover {
-    border-bottom: 2px solid black;
-    color: black;
-    fill: black;
+    border-bottom: 2px solid var(--color-button-nav-hover);
+    color: var(--color-button-nav-hover);
+    fill: var(--color-button-nav-hover);
 }
 
 .active-page {
