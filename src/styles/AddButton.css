@@ -19,6 +19,7 @@
 .add-button svg {
     height: 100%;
     width: 100%;
+    pointer-events: none;
     fill: var(--color-add-button-fill);
 }
 
