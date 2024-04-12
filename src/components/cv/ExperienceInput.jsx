@@ -1,3 +1,4 @@
+import '../../styles/ExperienceInput.css';
 import MonthYearDropDown from '../MonthYearDropdown';
 import AddButton from '../buttons/AddButton';
 import DeleteButton from '../buttons/DeleteButton';
@@ -14,56 +15,60 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
       </div>
       {Object.keys(items).map((key) => {
         return (
-          <div key={key}>
-            <div>
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Cheese Master"
-                onChange={onChange}
-                value={items[key].title}
-                data-key={key}
-                data-field="title"
-                required
-              />
+          <div key={key} className="experience-entry">
+            <div className="title-company-row">
+              <div>
+                <label htmlFor="title">Title</label>
+                <input
+                  type="text"
+                  name="title"
+                  id="title"
+                  placeholder="Cheese Master"
+                  onChange={onChange}
+                  value={items[key].title}
+                  data-key={key}
+                  data-field="title"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="company">Company</label>
+                <input
+                  type="text"
+                  name="company"
+                  id="company"
+                  placeholder="Cheese Master"
+                  onChange={onChange}
+                  value={items[key].company}
+                  data-key={key}
+                  data-field="company"
+                  required
+                />
+              </div>
             </div>
-            <div>
-              <label htmlFor="company">Company</label>
-              <input
-                type="text"
-                name="company"
-                id="company"
-                placeholder="Cheese Master"
-                onChange={onChange}
-                value={items[key].company}
-                data-key={key}
-                data-field="company"
-                required
-              />
+            <div className="from-to-date-row">
+              <div>
+                <MonthYearDropDown
+                  legend='From'
+                  selectedMonth={items[key].fromMonth}
+                  selectedYear={items[key].fromYear}
+                  dataKey={key}
+                  dataType={'from'}
+                  onChange={onChangeMonthYear}
+                />
+              </div>
+              <div>
+                <MonthYearDropDown
+                  legend='To'
+                  selectedMonth={items[key].toMonth}
+                  selectedYear={items[key].toYear}
+                  dataKey={key}
+                  dataType={'to'}
+                  onChange={onChangeMonthYear}
+                />
+              </div>
             </div>
-            <div>
-              <MonthYearDropDown
-                legend='From'
-                selectedMonth={items[key].fromMonth}
-                selectedYear={items[key].fromYear}
-                dataKey={key}
-                dataType={'from'}
-                onChange={onChangeMonthYear}
-              />
-            </div>
-            <div>
-              <MonthYearDropDown
-                legend='To'
-                selectedMonth={items[key].toMonth}
-                selectedYear={items[key].toYear}
-                dataKey={key}
-                dataType={'to'}
-                onChange={onChangeMonthYear}
-              />
-            </div>
-            <div>
+            <div className="description-row">
               <label htmlFor="description">Description</label>
               <textarea
                 name="description"
