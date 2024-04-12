@@ -13,6 +13,7 @@ import SocialInput from './components/cv/SocialInput';
 import SocialPreview from './components/cv/SocialPreview';
 import Footer from './components/Footer';
 import Navigation from './components/Navigation';
+import EditButton from './components/buttons/EditButton';
 
 function App() {
   const [infoInput, setInfoInput] = useState({
@@ -189,13 +190,11 @@ function App() {
 
   return (
     <>
-      <header>
-        <Navigation currentPage={page} onClick={handleNavigation} />
-      </header>
       <main>
         <section className='input-panel'>
+          <h2>Input</h2>
+          <Navigation currentPage={page} onClick={handleNavigation} />
           <form onSubmit={(e) => e.preventDefault()}>
-            <h2>Input</h2>
             {page === 'Info' && (
               <>
                 <h3>Info</h3>
@@ -277,18 +276,14 @@ function App() {
             phone={infoPreview.phone}
           />
           {infoStatus === 'saved' && (
-            <button type="button" onClick={handleEditInfo}>
-              Edit Info
-            </button>
+            <EditButton buttonText="Edit Info" onClick={handleEditInfo} />
           )}
           <SocialPreview
             linkedin={socialPreview.linkedin}
             github={socialPreview.github}
           />
           {socialStatus === 'saved' && (
-            <button type="button" onClick={handleEditSocial}>
-            Edit Socials
-          </button>
+            <EditButton buttonText="Edit Socials" onClick={handleEditSocial} />
           )}
           <EducationPreview
             school={educationPreview.school}
@@ -297,21 +292,15 @@ function App() {
             year={educationPreview.year}
           />
           {educationStatus === 'saved' && (
-            <button type="button" onClick={handleEditEducation}>
-              Edit Education
-            </button>
+            <EditButton buttonText="Edit Education" onClick={handleEditEducation} />
           )}
           <SkillPreview items={skillPreview} />
           {skillStatus === 'saved' && (
-            <button type="button" onClick={handleEditSkill}>
-              Edit Skills
-            </button>
+            <EditButton buttonText="Edit Skills" onClick={handleEditSkill} />
           )}
           <ExperiencePreview items={experiencePreview} />
           {experienceStatus === 'saved' && (
-            <button type="button" onClick={handleEditExperience}>
-              Edit Experience
-            </button>
+            <EditButton buttonText="Edit Experience" onClick={handleEditExperience} />
           )}
         </section>
       </main>

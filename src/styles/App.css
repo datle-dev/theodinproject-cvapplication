@@ -37,3 +37,20 @@ label {
     display: block;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100dvh;
+    padding: 2rem;
+}
+
+.input-panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+footer {
+    justify-self: flex-end;
+}
