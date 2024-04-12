@@ -8,6 +8,10 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
   if (isEditing) {
     return (
       <>
+      <div className="form-top-row">
+        <h3>Experience</h3>
+        <SaveButton onClick={onClickSave} />
+      </div>
       {Object.keys(items).map((key) => {
         return (
           <div key={key}>
@@ -78,7 +82,6 @@ function ExperienceInput({ items, onChange, onChangeMonthYear, onClickSave, onCl
         )
       })}
       <AddButton onClick={onClickAdd} />
-      <SaveButton onClick={onClickSave} />
       </>
     )
   } else {

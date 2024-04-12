@@ -13,6 +13,10 @@ function InfoInput({
   if (isEditing) {
     return (
       <>
+        <div className="form-top-row">
+          <h3>Info</h3>
+          <SaveButton onClick={onClickSave} />
+        </div>
         <div>
           <label htmlFor="name">Name</label>
           <input
@@ -53,7 +57,6 @@ function InfoInput({
             required
           />
         </div>
-        <SaveButton onClick={onClickSave} />
       </>
     );
   } else {

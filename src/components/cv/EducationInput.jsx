@@ -15,6 +15,10 @@ function EducationInput({
   if (isEditing) {
     return (
       <>
+        <div className="form-top-row">
+          <h3>Education</h3>
+          <SaveButton onClick={onClickSave} />
+        </div>
         <div>
           <label htmlFor="school">School</label>
           <input
@@ -47,7 +51,6 @@ function EducationInput({
           selectedYear={year}
           onChange={onChange}
         />
-        <SaveButton onClick={onClickSave} />
       </>
     );
   } else {

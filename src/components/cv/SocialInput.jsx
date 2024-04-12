@@ -5,6 +5,10 @@ function SocialInput({ linkedin, github, onChange, onClickSave, onClickEdit, isE
   if (isEditing) {
     return (
       <div>
+        <div className="form-top-row">
+          <h3>Socials</h3>
+          <SaveButton onClick={onClickSave} />
+        </div>
         <div>
           <label htmlFor="linkedin">LinkedIn</label>
           <input
@@ -27,7 +31,6 @@ function SocialInput({ linkedin, github, onChange, onClickSave, onClickEdit, isE
             data-field="github"
           />
         </div>
-        <SaveButton onClick={onClickSave} />
       </div>
     );
   } else {

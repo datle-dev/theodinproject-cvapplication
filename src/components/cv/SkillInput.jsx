@@ -16,6 +16,10 @@ function SkillInput({
     {if (isEditing) {
       return (
         <>
+          <div className="form-top-row">
+            <h3>Skills</h3>
+            <SaveButton onClick={onClickSave} />
+          </div>
           {Object.keys(items).map((key) => {
             return (
               <div className="skill-entry" key={key}>
@@ -33,7 +37,6 @@ function SkillInput({
             );
           })}
           <AddButton onClick={onClickAdd} />
-          <SaveButton onClick={onClickSave} />
         </>
       );
     } else {
