@@ -197,7 +197,6 @@ function App() {
           <form onSubmit={(e) => e.preventDefault()}>
             {page === 'Info' && (
               <>
-                <h3>Info</h3>
                 <InfoInput
                   name={infoInput.name}
                   email={infoInput.email}
@@ -211,7 +210,6 @@ function App() {
             )}
             {page === 'Education' && (
               <>
-                <h3>Education</h3>
                 <EducationInput
                   school={educationInput.school}
                   degree={educationInput.degree}
@@ -226,7 +224,6 @@ function App() {
             )}
             {page === 'Skills' && (
               <>
-              <h3>Skills</h3>
               <SkillInput
                 items={skillInput}
                 onChange={handleSkillChange}
@@ -240,7 +237,6 @@ function App() {
             )}
             {page === 'Experience' && (
               <>
-              <h3>Experience</h3>
               <ExperienceInput
                 items={experienceInput}
                 onChange={handleExperienceChange}
@@ -255,7 +251,6 @@ function App() {
             )}
             {page === 'Socials' && (
               <>
-              <h3>Socials</h3>
               <SocialInput
                 linkedin={socialInput.linkedin}
                 github={socialInput.github}
